@@ -2,7 +2,7 @@
 
 #Steps to run program:
 1) Install requirements.txt file using pip3 ```install -r requirements.txt``` command
-2) Run ```uvicorn main:app --reload command``` to run project
+2) Run ```uvicorn main:app --reload``` command to run project
 
 
 
