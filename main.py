@@ -1,3 +1,4 @@
+from email import message
 from typing import Union
 from fastapi_utils.cbv import cbv
 from fastapi import FastAPI
@@ -86,7 +87,9 @@ def update_address(address_id: int, new_info: CreateAddressSchema, session: Sess
 @router.delete("/address/{addr_id}")
 def delete_addr(addr_id: int, session: Session = Depends(get_db)):
     try:
-        return delete_address_info(session, addr_id)
+        delete_address_info(session, addr_id)
+        message = {"message":"Address Deleted Successfully"}
+        return message
     except AddressException as cie:
         raise HTTPException(**cie.__dict__)
 
